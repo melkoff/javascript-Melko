@@ -1,86 +1,120 @@
 // TASK 1 //
-function user(text){
-  alert(`Ваше ім'я: ${text}`);
+let firstUserNumber = Number(prompt("Введіть перше число"));
+let secondUserNumber = Number(prompt("Введіть друге число"));
+let sum = 0;
+while (firstUserNumber < secondUserNumber) {
+  firstUserNumber++;
+  if (firstUserNumber < secondUserNumber);
+  {
+    sum += firstUserNumber;
+  }
 }
-const userName = prompt("Введіть ваше ім'я:");
-user(userName);
-// =============================================================== //
-// TASK 2 //
-const userYear = new Date().getFullYear();
-const userAge = prompt("Введіть ваш рік народження!");
-if(userAge <= 0){
-  alert("Ви ввели невірні дані!")
-}else{
-  alert(`Ваш вік: ${userYear - userAge} років`);
+alert(sum);
+// ================================================================ //
+// TASK 2 // 
+const FIRST_USER_NUMBER = Number(prompt('Введіть перше число:'));
+const SECOND_USER_NUMBER = Number(prompt('Введіть друге число:'));
+
+function gcd(FIRST_USER_NUMBER, SECOND_USER_NUMBER) {
+  while (FIRST_USER_NUMBER != SECOND_USER_NUMBER) {
+    if (FIRST_USER_NUMBER > SECOND_USER_NUMBER) {
+      FIRST_USER_NUMBER -= SECOND_USER_NUMBER;
+    }
+    else {
+      SECOND_USER_NUMBER -= FIRST_USER_NUMBER;
+    }
+  }
+  return FIRST_USER_NUMBER;
 }
-// =============================================================== //
-// TASK 3 //
-const squareSide = prompt ("Введіть довжину сторони квадрату:");
-if (squareSide <= 0){
-    alert("Ви ввели невірні дані!")
-}else{
-    alert(`Периметр квадрата ${squareSide * 4} см`);
+
+let result = gcd(FIRST_USER_NUMBER, SECOND_USER_NUMBER);
+alert(result);
+// ================================================================ //
+// TASK 3 // 
+const USER_NUMBER = prompt('введіть число: ');
+if (USER_NUMBER <= 0) {
+  alert('Зараз я тебе на 0 поділю');
+} else {
+  alert(`Зараз облічимо усі дільника числа${USER_NUMBER}, і це: `);
+  for (let i = 1; i <= USER_NUMBER; i++) {
+
+    if (USER_NUMBER % i == 0) {
+      alert(i);
+      console.log(i);
+    }
+  }
 }
-// =============================================================== //
-// TASK 4 //
-const sircleSide = prompt ("Введіть радіус кола:");
-if (sircleSide <= 0){
-    alert("Ви ввели невірні дані!")
-}else{
-    alert(`Площа кола ${sircleSide * sircleSide * Math.PI.toFixed(2)}`);
+// ================================================================ //
+// TASK 4  // 
+const NUMBER = Number(prompt('Введіть число!'));
+const digits = (NUMBER, count = 0) => {
+  if (NUMBER) {
+    return digits(Math.floor(NUMBER / 10), ++count);
+  };
+  return count;
+};
+alert('Кількість цифр у числі = ' + digits(NUMBER));
+// ================================================================ //
+// TASK 6 // 
+const OPERATOR = prompt('Виберіть дію ( +, -, * чи / )');
+
+const FIRST_NUMBER = parseFloat(prompt('Введіть перше число: '));
+const SECOND_NUMBER = parseFloat(prompt('Введіть друге число: '));
+
+let calculationResult;
+
+if (OPERATOR == '+') {
+  calculationResult = FIRST_NUMBER + SECOND_NUMBER;
 }
-// =============================================================== //
-// TASK 5 //
-const getDistance = prompt("Введіть дистанцію в км:");
-const getTime = prompt("Введіть час маршруту в год.:");
-if (getDistance <= 0, getTime <= 0){
-    alert("Введіть коректні дані!")
-}else{
-    alert(`Вам потрібно їхати зі швидкістю ${(getDistance / getTime).toFixed(2)} км, щоб дістатися вчасно`);
+else if (OPERATOR == '-') {
+  calculationResult = FIRST_NUMBER - SECOND_NUMBER;
 }
-// =============================================================== //
-// TASK 6 //
-const dollar = 40.20;
-const euro = 41.30;
-const currencyConversion = prompt("Введіть суму в доларах:");
-if (currencyConversion <= 0){
-    alert("Введіть коректні дані!")
-}else{
-    alert(`Ваша сума в євро ${(currencyConversion * dollar / euro).toFixed(2)}`);
+else if (OPERATOR == '*') {
+  calculationResult = FIRST_NUMBER * SECOND_NUMBER;
 }
-// =============================================================== //
-// TASK 7 //
-const userGb = 1024;
-const filesMb = 820;
-const countFlesh = prompt("Введіть обсяг флешки у ГБ:");
-if (countFlesh <= 0){
-    alert("Введіть коректні дані!")
-}else{
-    alert(`Файлів вміститься на флешку ${(countFlesh * userGb / filesMb).toFixed(0)}`);
+else if (OPERATOR == '/') {
+  calculationResult = FIRST_NUMBER / SECOND_NUMBER;
+} else {
+  alert('Введіть корректні дані');
 }
-// =============================================================== //
-// TASK 8 //
-const userMoney = prompt("Введіть вашу суму в гаманці:");
-const chocoPrice = prompt("Введіть ціну одної шоколадки:");
-const amountChoco = Math.floor(userMoney / chocoPrice)
-if (userMoney<=0 || chocoPrice<=0){
-    alert("Недостатньо коштів!")
-}else{
-    alert(`Ви можете купити ${amountChoco} шоколадок, ваша решта ${userMoney - (amountChoco * chocoPrice)}`);
+
+alert(`${FIRST_NUMBER} ${OPERATOR} ${SECOND_NUMBER} = ${calculationResult}`);
+// ================================================================ //
+// TASK 8 // 
+let days = ["Понеділок", "Вівторок", "Середа", "Четвер", "Пятниця", "Субота", "Неділя"];
+days.forEach((day, index) => {
+  if (index == new Date().getDay()) {
+    alert("Завтра" + ' ' + day)
+  }
+});
+// ================================================================ //
+// TASK 9 // 
+const number = parseInt(prompt('Ввеіть число: '));
+for (let i = 2; i <= 9; i++) {
+  const result = i * number;
+  alert(`${number} * ${i} = ${result}`);
+  console.log(`${number} * ${i} = ${result}`)
 }
-// =============================================================== //
-// TASK 9 //
-const palinder = prompt("Введіть тризначне число:")
-if(palinder <= 100 || palinder > 999){
-  alert("Ви ввели невірні дані")
-}else{
-  alert(`Ваш паліндр: ${palinder.split('').reverse().join('')}`);
+// ================================================================ //
+// TASK 10 // 
+let NumberMin = 0;
+let NumberMax = 100;
+let userResult = Math.floor((NumberMin + NumberMax) / 2);
+let userNumber;
+
+alert("Загадайте число від 0 до 100");
+
+while (true) {
+  userNumber = prompt(`Введіть ">" якщо число більше від ${userResult}, або "<" якщо число менше від ${userResult}, або знак "=" якщо ваше число рівне ${userResult}`);
+  if (userNumber == '>') {
+    NumberMin = userResult + 1;
+  } else if (userNumber == '<') {
+    NumberMax = userResult - 1;
+  } else if (userNumber == '=') {
+    alert(`Ваше загадане число: ${userResult}`);
+    break;
+  }
+  userResult = Math.floor((NumberMin + NumberMax) / 2);
+  break;
 }
-// =============================================================== //
-// TASK 10 //
-const evenOdd = prompt("Введіть ціле число:")
-if(evenOdd % 2 == 0){
-  alert("Парне число!")
-}else if(evenOdd % 2 !=0){
-  alert("Непарне число")
-}
+// ================================================================ //
